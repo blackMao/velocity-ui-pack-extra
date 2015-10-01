@@ -803,6 +803,42 @@ return function (global, window, document, undefined) {
 			desc: '右上转入',
 			type: 'in'
 		},
+		//向上转入
+		"perspectiveDownRetourn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [1, 0], transformOriginX: ['0%', '0%'], transformOriginY: ['100%', '100%'], rotateX: [0, -180] }, 1]
+			],
+			desc: '向上转入',
+			type: 'in'
+		},
+		//向右转入
+		"perspectiveLeftRetourn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [1, 0], transformOriginX: ['0%', '0%'], transformOriginY: ['0%', '0%'], rotateY: [0, -180] }, 1]
+			],
+			desc: '向上转入',
+			type: 'in'
+		},
+		//向左转入
+		"perspectiveRightRetourn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [1, 0], transformOriginX: ['100%', '100%'], transformOriginY: ['0%', '0%'], rotateY: [0, 180] }, 1]
+			],
+			desc: '向上转入',
+			type: 'in'
+		},
+		//向上转入
+		"perspectiveUpRetourn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [1, 0], transformOriginX: ['0%', '0%'], transformOriginY: ['0%', '0%'], rotateX: [0, 180] }, 1]
+			],
+			desc: '向上转入',
+			type: 'in'
+		},
 		/**出现动画-结束**/
 		/**消失动画-开始**/
 		//魔力退场
@@ -1186,6 +1222,56 @@ return function (global, window, document, undefined) {
 			],
 			reset: { transformOriginX: 0, transformOriginY: 0, rotateZ: 0},
 			desc: '右上转出',
+			type: 'out'
+		},
+		//闪出
+		"puffOut": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['50%', '50%'], transformOriginY: ['50%', '50%'], scale: [2, 1], blur: [2, 1], transformPerspective: 800}, 1]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, blur: 0, scale: 1, transformPerspective: 0},
+			desc: '闪出',
+			type: 'out'
+		},
+		//向下转出
+		"rotateDown": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['50%', '0%'], transformOriginY: ['100%', '0%'], transformPerspective: 800, rotateX: [-180, 0], translateZ: [300, 0] }, 1]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, transformPerspective: 0, rotateX: 0, translateZ: 0},
+			desc: '向下转出',
+			type: 'out'
+		},
+		//向上转出
+		"rotateUp": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['50%', '0%'], transformOriginY: ['0%', '0%'], transformPerspective: 800, rotateX: [180, 0], translateZ: [150, 0] }, 1]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, transformPerspective: 0, rotateX: 0, translateZ: 0},
+			desc: '向上转出',
+			type: 'out'
+		},
+		//向右转出
+		"rotateRight": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['50%', '0%'], transformOriginY: ['0%', '0%'], transformPerspective: 800, rotateY: [-180, 0], translateZ: [300, 0] }, 1]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, transformPerspective: 0, rotateX: 0, translateZ: 0},
+			desc: '向右转出',
+			type: 'out'
+		},
+		//向左转出
+		"rotateLeft": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['50%', '0%'], transformOriginY: ['0%', '0%'], transformPerspective: 800, rotateY: [180, 0], translateZ: [300, 0] }, 1]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, transformPerspective: 0, rotateX: 0, translateZ: 0},
+			desc: '向左转出',
 			type: 'out'
 		}
 		/**消失动画-结束**/
