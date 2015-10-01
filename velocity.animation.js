@@ -258,6 +258,42 @@ return function (global, window, document, undefined) {
 			desc: '右上打开',
 			type: 'special'
 		},
+		//向下翻转
+		"perspectiveDown": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: 1, transformOriginX: ['0%', '0%'], transformOriginY: ['100%', '100%'], rotateX: [-180, 0], transformPerspective: [800, 800]}, 1]
+			],
+			desc: '向下翻转',
+			type: 'special'
+		},
+		//向上翻转
+		"perspectiveUp": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: 1, transformOriginX: ['0%', '0%'], transformOriginY: ['0%', '0%'], rotateX: [180, 0], transformPerspective: [800, 800]}, 1]
+			],
+			desc: '向上翻转',
+			type: 'special'
+		},
+		//向右翻转
+		"perspectiveRight": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: 1, transformOriginX: ['100%', '100%'], transformOriginY: ['0%', '0%'], rotateY: [180, 0], transformPerspective: [800, 800]}, 1]
+			],
+			desc: '向右翻转',
+			type: 'special'
+		},
+		//向左翻转
+		"perspectiveLeft": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: 1, transformOriginX: ['0%', '0%'], transformOriginY: ['0%', '0%'], rotateY: [-180, 0], transformPerspective: [800, 800]}, 1]
+			],
+			desc: '向左翻转',
+			type: 'special'
+		},
 		/**特效动画-结束**/
 		/**出现动画-开始**/
 		//放大进入
@@ -731,6 +767,42 @@ return function (global, window, document, undefined) {
 			desc: '上旋转入',
 			type: 'in'
 		},
+		//左下转入
+		"openDownLeftRetourn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [1, 0], transformOriginX: [0, 0], transformOriginY: ['100%', '100%'], rotateZ: [0, -110] }, 1, {easing: 'ease-in-out'}]
+			],
+			desc: '左下转入',
+			type: 'in'
+		},
+		//右下转入
+		"openDownRightRetourn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [1, 0], transformOriginX: ['100%', '100%'], transformOriginY: ['100%', '100%'], rotateZ: [0, 110] }, 1, {easing: 'ease-in-out'}]
+			],
+			desc: '右下转入',
+			type: 'in'
+		},
+		//左上转入
+		"openUpLeftRetourn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [1, 0], transformOriginX: [0, 0], transformOriginY: [0, 0], rotateZ: [0, 110] }, 1, {easing: 'ease-in-out'}]
+			],
+			desc: '左上转入',
+			type: 'in'
+		},
+		//右上转入
+		"openUpRightRetourn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [1, 0], transformOriginX: ['100%', '100%'], transformOriginY: [0, 0], rotateZ: [0, -110] }, 1, {easing: 'ease-in-out'}]
+			],
+			desc: '右上转入',
+			type: 'in'
+		},
 		/**出现动画-结束**/
 		/**消失动画-开始**/
 		//魔力退场
@@ -1076,6 +1148,46 @@ return function (global, window, document, undefined) {
 			desc: '从右滑出',
 			type: 'out'
 		},
+		//左下转出
+		"openDownLeftOut": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['0%', '0%'], transformOriginY: ['100%', '100%'], rotateZ: [-110, 0]}, 1, {easing: 'ease-in-out'}]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, rotateZ: 0},
+			desc: '左下转出',
+			type: 'out'
+		},
+		//右下转出
+		"openDownRightOut": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['100%', '100%'], transformOriginY: ['100%', '100%'], rotateZ: [110, 0]}, 1, {easing: 'ease-in-out'}]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, rotateZ: 0},
+			desc: '右下转出',
+			type: 'out'
+		},
+		//左上转出
+		"openUpLeftOut": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['0%', '0%'], transformOriginY: ['0%', '0%'], rotateZ: [110, 0]}, 1, {easing: 'ease-in-out'}]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, rotateZ: 0},
+			desc: '左上转出',
+			type: 'out'
+		},
+		//右上转出
+		"openUpRightOut": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], transformOriginX: ['100%', '100%'], transformOriginY: ['0%', '0%'], rotateZ: [-110, 0]}, 1, {easing: 'ease-in-out'}]
+			],
+			reset: { transformOriginX: 0, transformOriginY: 0, rotateZ: 0},
+			desc: '右上转出',
+			type: 'out'
+		}
 		/**消失动画-结束**/
 	};
 
