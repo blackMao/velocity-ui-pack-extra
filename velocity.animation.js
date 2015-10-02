@@ -222,6 +222,19 @@ return function (global, window, document, undefined) {
 			desc: '吹风效果',
 			type: 'special'
 		},
+		//倒塌效果
+		"boingOutDown": {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: 1, transformOriginX: '100%', transformOriginY: '100%', perspectiveOrigin: 800, rotateX: 0, rotateY: 0}, 0.1],
+				[ {opacity: 1, transformOriginX: '100%', transformOriginY: '100%', perspectiveOrigin: 800, rotateX: 0, rotateY: 10}, 0.1],
+				[ {opacity: 1, transformOriginX: '0%', transformOriginY: '100%', perspectiveOrigin: 800, rotateX: 0, rotateY: 0}, 0.1],
+				[ {opacity: 1, transformOriginX: '0%', transformOriginY: '100%', perspectiveOrigin: 800, rotateX: 10, rotateY: 10}, 0.1],
+				[ {opacity: 0, transformOriginX: '100%', transformOriginY: '100%', perspectiveOrigin: 800, rotateX: 90, rotateY: 0}, 0.6],
+			],
+			desc: '倒塌效果',
+			type: 'special'
+		},
 		//左下打开
 		"openDownLeft": {
 			defaultDuration: 800,
@@ -694,36 +707,6 @@ return function (global, window, document, undefined) {
 			desc: '爆炸效果',
 			type: 'in'
 		},
-		//铃声上入
-		"tinUpIn": {
-			defaultDuration: 1000,
-			calls: [
-				[ {translateY: '-900%', scale: 1}, 1/7],
-				[ {translateY: 0, scale: 1.1}, 1/7],
-				[ {translateY: 0, scale: 1}, 1/7],
-				[ {translateY: 0, scale: 1.1}, 1/7],
-				[ {translateY: 0, scale: 1}, 1/7],
-				[ {translateY: 0, scale: 1.1}, 1/7],
-				[ {translateY: 0, scale: 1}, 1/7],
-			],
-			desc: '铃声上入',
-			type: 'in'
-		},
-		//铃声下入
-		"tinDownIn": {
-			defaultDuration: 1000,
-			calls: [
-				[ {translateY: '900%', scale: 1}, 1/7],
-				[ {translateY: 0, scale: 1.1}, 1/7],
-				[ {translateY: 0, scale: 1}, 1/7],
-				[ {translateY: 0, scale: 1.1}, 1/7],
-				[ {translateY: 0, scale: 1}, 1/7],
-				[ {translateY: 0, scale: 1.1}, 1/7],
-				[ {translateY: 0, scale: 1}, 1/7],
-			],
-			desc: '铃声下入',
-			type: 'in'
-		},
 		//乱入
 		"foolishIn": {
 			defaultDuration: 1000,
@@ -837,6 +820,88 @@ return function (global, window, document, undefined) {
 				[ { opacity: [1, 0], transformOriginX: ['0%', '0%'], transformOriginY: ['0%', '0%'], rotateX: [0, 180] }, 1]
 			],
 			desc: '向上转入',
+			type: 'in'
+		},
+		//旋转下入
+		"twisterInDown": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: 0, transformOriginX: '0%', transformOriginY: '100%', scale: 0,  rotateZ: 360, translateY: '-100%'}, 1/3],
+				[ { opacity: 0, transformOriginX: '0%', transformOriginY: '100%', scale: 0,  rotateZ: 360, translateY: '-100%'}, 1/3],
+				[ { opacity: 1, transformOriginX: '100%', transformOriginY: '100%', scale: 1,  rotateZ: 0, translateY: 0}, 1/3]
+			],
+			desc: '旋转下入',
+			type: 'in'
+		},
+		//旋转上入
+		"twisterInUp": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: 0, transformOriginX: '100%', transformOriginY: '0%', scale: 0,  rotateZ: 360, translateY: '100%'}, 1/3],
+				[ { opacity: 0, transformOriginX: '100%', transformOriginY: '0%', scale: 0,  rotateZ: 360, translateY: '100%'}, 1/3],
+				[ { opacity: 1, transformOriginX: '0%', transformOriginY: '0%', scale: 1,  rotateZ: 0, translateY: 0}, 1/3]
+			],
+			desc: '旋转上入',
+			type: 'in'
+		},
+		//抖动右入
+		"tinRightIn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: 0, scale: 1, translateX: '900%' }, 0.4],
+				[ { opacity: 1, scale: 1.1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1.1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1.1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1, translateX: '0%' }, 0.1]
+			],
+			desc: '抖动右入',
+			type: 'in'
+		},
+		//抖动左入
+		"tinLeftIn": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: 0, scale: 1, translateX: '-900%' }, 0.4],
+				[ { opacity: 1, scale: 1.1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1.1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1.1, translateX: '0%' }, 0.1],
+				[ { opacity: 1, scale: 1, translateX: '0%' }, 0.1]
+			],
+			desc: '抖动左入',
+			type: 'in'
+		},
+		//抖动上入
+		"tinUpIn": {
+			defaultDuration: 1000,
+			calls: [
+				[ {translateY: '-900%', scale: 1}, 1/7],
+				[ {translateY: 0, scale: 1.1}, 1/7],
+				[ {translateY: 0, scale: 1}, 1/7],
+				[ {translateY: 0, scale: 1.1}, 1/7],
+				[ {translateY: 0, scale: 1}, 1/7],
+				[ {translateY: 0, scale: 1.1}, 1/7],
+				[ {translateY: 0, scale: 1}, 1/7],
+			],
+			desc: '抖动上入',
+			type: 'in'
+		},
+		//抖动下入
+		"tinDownIn": {
+			defaultDuration: 1000,
+			calls: [
+				[ {translateY: '900%', scale: 1}, 1/7],
+				[ {translateY: 0, scale: 1.1}, 1/7],
+				[ {translateY: 0, scale: 1}, 1/7],
+				[ {translateY: 0, scale: 1.1}, 1/7],
+				[ {translateY: 0, scale: 1}, 1/7],
+				[ {translateY: 0, scale: 1.1}, 1/7],
+				[ {translateY: 0, scale: 1}, 1/7],
+			],
+			desc: '抖动下入',
 			type: 'in'
 		},
 		/**出现动画-结束**/
@@ -1273,7 +1338,177 @@ return function (global, window, document, undefined) {
 			reset: { transformOriginX: 0, transformOriginY: 0, transformPerspective: 0, rotateX: 0, translateZ: 0},
 			desc: '向左转出',
 			type: 'out'
-		}
+		},
+		//模糊退出
+		'vanishOut': {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: [0, 1], scale: [2, 1], transformOrigin: '50%', blur: [20, 0]}, 1]
+			],
+			reset: { scale: 1, transformOrigin: 0, blur: 0},
+			desc: '模糊退出',
+			type: 'out'
+		},
+		//放大震出
+		'swashOut': {
+			defaultDuration: 800,
+			calls: [
+				[ {opacity: 1, scale:1, transformOrigin: '50%'}, 1/3],
+				[ {opacity: 1, scale:0.9, transformOrigin: '50%'}, 1/3],
+				[ {opacity: 0, scale:0, transformOrigin: '50%'}, 1/3]
+			],
+			reset: { scale: 1, transformOrigin: 0},
+			desc: '放大震出',
+			type: 'out'
+		},
+		//乱出
+		"foolishOut": {
+			defaultDuration: 1000,
+			calls: [
+				[ {opacity: 1, scale: 1, rotate: 360, transformOrigin: '50%'}, 0.25],
+				[ {opacity: 1, scale: 0.5, rotate: 0, transformOrigin: 0}, 0.25],
+				[ {opacity: 1, scale: 0.5, rotate: 0, transformOriginX: '100%'}, 0.25],
+				[ {opacity: 1, scale: 0.5, rotate: 0, transformOriginX: 0, transformOriginY: '100%'}, 0.25],
+				[ {opacity: 0, scale: 0, rotate: 0, transformOrigin: '50%'}, 0.25],
+			],
+			reset: { scale: 1, transformOrigin: 0, rotate: 0},
+			desc: '乱出',
+			type: 'out'
+		},
+		//黑洞
+		"holeOut": {
+			defaultDuration: 1000,
+			calls: [
+				[ {opacity: [0, 1], scale: [0, 1], rotateY: [180, 0], transformOrigin: '50%'}, 1]
+			],
+			reset: { scale: 1, transformOrigin: 0, rotateY: 0},
+			desc: '黑洞',
+			type: 'out'
+		},
+		//抖动右出
+		"tinRightOut": {
+			defaultDuration: 1000,
+			calls: [
+				[ {opacity: 1, scale: 1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1.1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1.1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateX: 0}, 0.1],
+				[ {opacity: 0, scale: 1, translateX: '900%'}, 0.4],
+			],
+			reset: { scale: 1, translateX: 0},
+			desc: '抖动右出',
+			type: 'out'
+		},
+		//抖动左出
+		"tinLeftOut": {
+			defaultDuration: 1000,
+			calls: [
+				[ {opacity: 1, scale: 1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1.1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1.1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateX: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateX: 0}, 0.1],
+				[ {opacity: 0, scale: 1, translateX: '-900%'}, 0.4],
+			],
+			reset: { scale: 1, translateX: 0},
+			desc: '抖动左出',
+			type: 'out'
+		},
+		//抖动下出
+		"tinDownOut": {
+			defaultDuration: 1000,
+			calls: [
+				[ {opacity: 1, scale: 1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1.1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1.1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateY: 0}, 0.1],
+				[ {opacity: 0, scale: 1, translateY: '900%'}, 0.4],
+			],
+			reset: { scale: 1, translateY: 0},
+			desc: '抖动下出',
+			type: 'out'
+		},
+		//抖动上出
+		"tinUpOut": {
+			defaultDuration: 1000,
+			calls: [
+				[ {opacity: 1, scale: 1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1.1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1.1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateY: 0}, 0.1],
+				[ {opacity: 1, scale: 1, translateY: 0}, 0.1],
+				[ {opacity: 0, scale: 1, translateY: '-900%'}, 0.4],
+			],
+			reset: { scale: 1, translateY: 0},
+			desc: '抖动上出',
+			type: 'out'
+		},
+		//爆炸右出
+		"bombRightOut": {
+			defaultDuration: 1000,
+			calls: [
+				[ {opacity: 1, rotateZ: 0, blur: 0, transformOriginX: '50%', transformOriginY: '50%'}, 1/3],
+				[ {opacity: 1, rotateZ: 160, blur: 10, transformOriginX: '200%', transformOriginY: '50%'}, 1/3],
+				[ {opacity: 1, rotateZ: 160, blur: 20, transformOriginX: '200%', transformOriginY: '50%'}, 1/3],
+			],
+			reset: { rotate: 1, transformOriginX: 0, transformOriginY: 0, rotateZ: 0},
+			desc: '爆炸右出',
+			type: 'out'
+		},
+		//爆炸左出
+		"bombLeftOut": {
+			defaultDuration: 1000,
+			calls: [
+				[ {opacity: 1, rotateZ: 0, blur: 0, transformOriginX: '50%', transformOriginY: '50%'}, 1/3],
+				[ {opacity: 1, rotateZ: -160, blur: 10, transformOriginX: '-100%', transformOriginY: '50%'}, 1/3],
+				[ {opacity: 1, rotateZ: -160, blur: 20, transformOriginX: '-100%', transformOriginY: '50%'}, 1/3],
+			],
+			reset: { rotate: 1, transformOriginX: 0, transformOriginY: 0, rotateZ: 0},
+			desc: '爆炸左出',
+			type: 'out'
+		},
+		//空间右出
+		"spaceOutRight": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [ 0, 1], translateX: [ '200%', 0 ], scale: [0.2, 1], transformOriginX: '100%', transformOriginY: '50%' }, 1]
+			],
+			desc: '空间右出',
+			type: 'in'
+		},
+		//空间左出
+		"spaceOutLeft": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [ 0, 1], translateX: [ '-200%', 0 ], scale: [0.2, 1], transformOriginX: '100%', transformOriginY: '50%' }, 1]
+			],
+			desc: '空间左出',
+			type: 'in'
+		},
+		//空间上出
+		"spaceOutUp": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [ 0, 1 ], translateY: [ '-200%', 0], scale: 0.2, transformOriginX: '50%', transformOriginY: '100%' }, 1 ]
+			],
+			desc: '空间上出',
+			type: 'in'
+		},
+		//空间下出
+		"spaceOutDown": {
+			defaultDuration: 1000,
+			calls: [
+				[ { opacity: [ 0, 1 ], translateY: [ '200%', 0], scale: 0.2, transformOriginX: '50%', transformOriginY: '100%' }, 1 ]
+			],
+			desc: '空间下出',
+			type: 'in'
+		},
 		/**消失动画-结束**/
 	};
 
