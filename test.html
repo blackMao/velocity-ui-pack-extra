@@ -1,0 +1,31 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>动画效果测试</title>
+<link rel="stylesheet" href="magic.css">
+<style>
+	.square{width: 48px;height: 48px;background: url('http://www.baomitu.com/resource/img/icon-logo.png');border: 2px solid #f70;}
+</style>
+</head>
+<body>
+<div>
+	<div style="float:left;margin-left:35%;">
+		<div class="square magictime"></div>
+	</div>
+</div>
+<script src="http://libs.useso.com/js/zepto/1.1.3/zepto.js" ></script>
+<script src="http://s3.qhimg.com/!459c46d4/velocity.js"></script>
+<script src="http://s2.qhimg.com/!d5907f22/velocity.ui.js"></script>
+<script src="velocity.animation.js"></script>
+<script>
+
+$(function() {
+	var $div = $('.square');
+
+	$div.velocity('bounce');
+});
+</script>
+</body>
+</html>
+</html>
