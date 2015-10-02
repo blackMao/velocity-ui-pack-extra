@@ -17,4 +17,4 @@ $elements.velocity("slideInUp");
 目前支持的动画
 ======
 animation.css所有动画名称
-magic.css部分动画
+magic.css几乎所有动画（一部分与animation.css相同的未实现）
