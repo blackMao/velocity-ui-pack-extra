@@ -10,9 +10,11 @@
 
 ```js
 $elements.velocity("callout.bounce"); //参数就是动画名称
+//采用与animation.css和magic.css同类名的形式
+$elements.velocity("slideInUp");
 ```
 
 目前支持的动画
 ======
 animation.css所有动画名称
-magic.css部分动画（待更新）
+magic.css部分动画
