@@ -35,6 +35,8 @@ $elements.velocity("slideInUp");
 
 	MsAnimation.runAnimation('.square', quene, function() {
 		alert('结束');
+		//清除动画
+		MsAnimation.resetAnimation();
 	});
 ```
 
