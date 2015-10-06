@@ -19,11 +19,33 @@
 <script src="http://s2.qhimg.com/!d5907f22/velocity.ui.js"></script>
 <script src="velocity.animation.js"></script>
 <script>
-
 $(function() {
 	var $div = $('.square');
+	var quene = [
+		{
+			name: 'fadeInUp',
+			duration: 2,
+			delay: 0,
+			loop: 1
+		},
+		{
+			name: 'bounce',
+			duration: 1,
+			delay: 1,
+			loop: true
+		},
+	];
 
-	$div.velocity('slideInUp');
+	//velocity使用方式
+	/*$div.velocity('bounce', {
+		duration: 1000,
+		delay: 1000,
+		loop: true
+	});*/
+	//封装新方法
+	MsAnimation.runAnimation('.square', quene, function() {
+		alert('结束');
+	});
 });
 </script>
 </body>
