@@ -14,6 +14,29 @@ $elements.velocity("callout.bounce"); //参数就是动画名称
 $elements.velocity("slideInUp");
 ```
 
+动画序列
+======
+```js
+	var quene = [
+		{
+			name: 'fadeInUp',
+			duration: 2,
+			delay: 0,
+			loop: 1
+		},
+		{
+			name: 'bounce',
+			duration: 1,
+			delay: 1,
+			loop: true
+		},
+	];
+
+	MsAnimation.runAnimation('.square', quene, function() {
+		alert('结束');
+	});
+```
+
 目前支持的动画
 ======
 animation.css所有动画名称
