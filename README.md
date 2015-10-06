@@ -41,3 +41,8 @@ $elements.velocity("slideInUp");
 ======
 animation.css所有动画名称
 magic.css几乎所有动画（一部分与animation.css相同的未实现）
+
+例子
+======
+[PC例子](http://maoshuai.sinaapp.com/ttgcw.html)
+[移动端例子](http://h5.baomitu.com/app/f5349.html)--建议使用手机模式访问
