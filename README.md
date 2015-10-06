@@ -49,4 +49,4 @@ magic.css几乎所有动画（一部分与animation.css相同的未实现）
 ======
 [PC例子](http://maoshuai.sinaapp.com/ttgcw.html)
 [移动端例子](http://h5.baomitu.com/app/f5349.html)--建议使用手机模式访问
-[二维码](!http://images2015.cnblogs.com/blog/435330/201510/435330-20151006111627378-1190742810.png)
+![二维码](http://images2015.cnblogs.com/blog/435330/201510/435330-20151006111627378-1190742810.png)
