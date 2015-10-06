@@ -17,6 +17,7 @@ $elements.velocity("slideInUp");
 动画序列
 ======
 ```js
+	//支持animation.css和magic.css中的所有动画，具体名称可以参考两个动画库的类名
 	var quene = [
 		{
 			name: 'fadeInUp',
