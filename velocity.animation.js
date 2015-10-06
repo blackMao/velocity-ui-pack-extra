@@ -34,7 +34,7 @@ return function (global, window, document, undefined) {
 	 {
 		defaultDuration: 825,
 		calls: [
-			[properties, percent, options]
+			[properties, duration, options]
 		]
 	 }
 	 */
@@ -1515,6 +1515,138 @@ return function (global, window, document, undefined) {
 	for (var effectName in packagedEffects) {
         Velocity.RegisterEffect(effectName, packagedEffects[effectName]);
     }
+
+    //避免污染Velocity
+	window.MsAnimation = {
+		$: global,
+		/**
+		 * 清除动画，恢复元素初始状态
+		 * @param {String|Object} 元素选择器
+		 */
+		resetAnimation: function(selector) {
+			var  $ = this.$;
+
+		    $(selector).velocity('stop', true)
+			    .velocity('finish')
+			    .velocity({
+				    translate:0,
+					translateX: 0,
+					translateY: 0,
+					translateZ: 0,
+				    rotate: 0,
+				    rotateX: 0,
+				    rotateY: 0,
+				    rotateZ: 0,
+				    scale: 1,
+				    scaleX: 1,
+				    scaleY: 1,
+				    scaleZ: 1,
+				    skew: 0,
+				    skewX: 0,
+				    skewY: 0
+			    }, {
+				    duration: 10
+			    });
+		},
+		/**
+		 * 播放动画序列
+		 * @param selector 选择器或者dom
+		 * @param quene 动画数组或者单动画
+		 * @param callback 队列完成回调
+		 */
+		runAnimation: function(selector, quene, callback) {
+			var self = this;
+
+			var _quene = self._format2velocity(selector, quene);
+
+			if(_quene.length == 0) return;
+
+			//动画队列执行完毕回调
+			_quene[_quene.length-1].o['complete'] = callback ? callback : null;
+
+		    Velocity.RunSequence(_quene);
+		},
+		/**
+		 * 处理循环设置
+		 * @param {Object} animation
+		 * {
+		 *	name: 'bounce',
+		 *	duration: 1,
+		 *	delay: 1,
+		 * 	loop: 1
+		 * }
+		 * @param {Number} loop 循环次数，0代表无限循环
+		 */
+		_dealLoop: function (animation, loop) {
+			var  $ = this.$;
+			var _newQuene = [];
+
+			if(loop == 1) {
+				return [animation];
+			}
+			for(var i=0; i<loop; i++) {
+				var _animation = $.extend(true, {}, animation);
+				//解决循环的重复delay问题
+				if(i != 0) {
+					delete _animation.o.delay;
+				}
+				_newQuene.push(_animation);
+			}
+			return _newQuene;
+		},
+		/**
+		 * 格式化动画格式
+		 * @param {String|Object} 元素选择器
+		 * @param {Object} animation
+		 * {
+		 *	name: 'bounce',
+		 *	duration: 1,
+		 *	delay: 1,
+		 * 	loop: 1
+		 * }
+		 */
+		_animationStyleFormat: function (selector, animationStyle) {
+			var  $ = this.$;
+			var self = this;
+			var __quene = [];
+
+			var animation = {
+				e: $(selector)[0],
+				p: '',
+				o: {}
+			};
+			var duration = parseFloat(animationStyle.duration) * 1000;
+			var delay = parseFloat(animationStyle.delay) * 1000;
+			var interationCount = parseInt(animationStyle.loop);
+			var loop = animationStyle.loop === true ? 1000 : (interationCount ? interationCount : 1); //1000认为是无限循环
+			animation.o.duration = duration;
+			animation.o.delay = delay;
+			animation.p = animationStyle.name;
+			__quene = self._dealLoop(animation, loop);
+			return __quene;
+		},
+		/**
+		 * 动画队列格式化
+		 * @param {String|Object} 元素选择器
+		 * @param {Array|Object} 动画队列
+		 */
+		_format2velocity: function (selector, quene) {
+			var  $ = this.$;
+			var self = this;
+			var _newQuene = [];
+
+			if($.isPlainObject(quene)) {
+				return self._animationStyleFormat(selector, quene);
+			}
+
+			$.each(quene, function(i, animationStyle) {
+				var __quene = self._animationStyleFormat(selector, animationStyle);
+				_newQuene = _newQuene.concat(__quene);
+			});
+
+			return _newQuene;
+		}
+	};
     
 }((window.jQuery || window.Zepto || window), window, document);
 }));
