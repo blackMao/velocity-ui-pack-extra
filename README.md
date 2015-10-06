@@ -42,11 +42,12 @@ $elements.velocity("slideInUp");
 
 目前支持的动画
 ======
-animation.css所有动画名称
-magic.css几乎所有动画（一部分与animation.css相同的未实现）
+1. animation.css所有动画名称
+2. magic.css几乎所有动画（一部分与animation.css相同的未实现）
 
 例子
 ======
-[PC例子](http://maoshuai.sinaapp.com/ttgcw.html)
-[移动端例子](http://h5.baomitu.com/app/f5349.html)--建议使用手机模式访问
+1. [PC例子](http://maoshuai.sinaapp.com/ttgcw.html)
+2. [移动端例子](http://h5.baomitu.com/app/f5349.html)--建议使用手机模式访问
+
 ![二维码](http://images2015.cnblogs.com/blog/435330/201510/435330-20151006111627378-1190742810.png)
